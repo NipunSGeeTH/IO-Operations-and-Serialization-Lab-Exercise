@@ -6,15 +6,27 @@ import java.time.format.DateTimeFormatter;
 
 
 // these use for sending email revenue report
-import javax.mail.*;                
+import javax.mail.*;
 import javax.mail.internet.*;
 
-
+/**
+ * The Item class represents a single item in the supermarket with properties such as code, name, price, etc.
+ */
 class Item {
     String code, name, sizeOrWeight, manufacturer, expiry;
     double price;
     int discount;
 
+    /**
+     * Constructor to create an Item object with the specified properties.
+     * @param code Item code.
+     * @param name Item name.
+     * @param price Item price.
+     * @param sizeOrWeight Size or weight of the item.
+     * @param manufacturer Manufacturer of the item.
+     * @param expiry Expiry date of the item.
+     * @param discount Discount percentage for the item.
+     */
     public Item(String code, String name, double price, String sizeOrWeight, String manufacturer, String expiry, int discount) {
         this.code = code;
         this.name = name;
@@ -25,19 +37,31 @@ class Item {
         this.discount = discount;
     }
 }
-
+/**
+ * The Bill class represents a bill for a customer, including cashier information, customer details, items, and the total cost.
+ */
 class Bill {
     String cashier, customer;
     List<String> items = new ArrayList<>();
     double totalCost = 0, totalDiscount = 0;
     LocalDateTime dateTime;
 
+    /**
+     * Constructor to create a Bill object with cashier and customer details.
+     * @param cashier Cashier's name.
+     * @param customer Customer's name.
+     */
     public Bill(String cashier, String customer) {
         this.cashier = cashier;
         this.customer = customer;
         this.dateTime = LocalDateTime.now();
     }
 
+    /**
+     * Adds an item to the bill.
+     * @param item Item to be added.
+     * @param quantity Quantity of the item.
+     */
     public void addItem(Item item, int quantity) {
         double itemTotal = item.price * quantity * (1 - item.discount / 100.0);
         totalCost += itemTotal;
@@ -45,6 +69,11 @@ class Bill {
         items.add(item.name + " (" + item.sizeOrWeight + "), " + quantity + ", " + item.discount + "%, $" + itemTotal);
     }
 
+    /**
+     * Saves the bill details to a text file.
+     * @param filename Name of the file where the bill will be saved.
+     * @throws Exception If an error occurs while writing to the file.
+     */
     public void saveAsTextFile(String filename) throws Exception {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true)); // 'true' to append
         writer.write("Super-Saving Supermarket\nBill Receipt\n");
@@ -60,10 +89,19 @@ class Bill {
     }
 }
 
+/**
+ * The POS class manages the operations of the Point of Sale (POS) system, such as loading items, managing bills,
+ * saving revenue data, and generating revenue reports.
+ */
 class POS {
     static Map<String, Item> itemDatabase = new HashMap<>();
     static String revenueFile = "revenue.txt";  // File to store revenue data
 
+    /**
+     * Loads items from a CSV file into the item database.
+     * @param filename Path to the CSV file containing item details.
+     * @throws Exception If an error occurs while reading the file.
+     */
     public static void loadItemsFromCSV(String filename) throws Exception {
         BufferedReader br = new BufferedReader(new FileReader(filename));
         String line;
@@ -83,7 +121,12 @@ class POS {
         }
         br.close();
     }
-
+    /**
+     * Saves a pending bill to a CSV file.
+     * @param bill The bill to save.
+     * @param filename The file name where the bill will be saved.
+     * @throws Exception If an error occurs while writing to the file.
+     */
     public static void savePendingBill(Bill bill, String filename) throws Exception {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
         writer.write(bill.cashier + "," + bill.customer + "\n");
@@ -93,7 +136,12 @@ class POS {
         writer.write("TotalDiscount," + bill.totalDiscount + "\nTotalCost," + bill.totalCost + "\n");
         writer.close();
     }
-
+    /**
+     * Loads a pending bill from a CSV file.
+     * @param filename The file name from which the bill will be loaded.
+     * @return The loaded Bill object.
+     * @throws Exception If an error occurs while reading the file.
+     */
     public static Bill loadPendingBill(String filename) throws Exception {
         BufferedReader br = new BufferedReader(new FileReader(filename));
         String[] header = br.readLine().split(",");
@@ -113,6 +161,11 @@ class POS {
     }
 
     // New method to save revenue data
+    /**
+     * Saves revenue data to a revenue file.
+     * @param bill The bill for which the revenue will be saved.
+     * @throws Exception If an error occurs while writing to the file.
+     */
     public static void saveRevenue(Bill bill) throws Exception {
         BufferedWriter writer = new BufferedWriter(new FileWriter(revenueFile, true));
         writer.write(bill.dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")) + " | Total Cost: $" + bill.totalCost + "\n");
@@ -120,6 +173,12 @@ class POS {
     }
 
     // New method to generate revenue report between two dates
+    /**
+     * Generates a revenue report for a specified date range and saves it to a file.
+     * @param fromDate The start date of the report in yyyy-MM-dd format.
+     * @param toDate The end date of the report in yyyy-MM-dd format.
+     * @throws Exception If an error occurs while reading the revenue data or generating the report.
+     */
     public static void generateRevenueReport(String fromDate, String toDate) throws Exception {
         BufferedReader reader = new BufferedReader(new FileReader(revenueFile));
         String line;
@@ -149,50 +208,57 @@ class POS {
         reportWriter.close();
         reader.close();
     }
-
+    /**
+     * Sends the generated revenue report as an email attachment.
+     * @param reportFilePath The path of the report file to be sent.
+     * @throws Exception If an error occurs while sending the email.
+     */
     public static void sendEmailWithReport(String reportFilePath) throws Exception {
         final String username = "sangeethk.23@cse.mrt.ac.lk"; // replace with your email
-        final String password = "glse mciy sfce lqul"; // App password (not your email password)
-    
+        final String password = "glse mciy s"; // App password (not your email password)
+
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
-    
+
         Session session = Session.getInstance(props,
-            new Authenticator() {
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(username, password);
-                }
-            });
-    
+                new Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(username, password);
+                    }
+                });
+
         Message message = new MimeMessage(session);
         message.setFrom(new InternetAddress(username));
         message.setRecipients(Message.RecipientType.TO,
-              
+
                 InternetAddress.parse("salesteam@supersaving.lk"));
         message.setSubject("Super-Saving Revenue Report");
-    
+
         MimeBodyPart textPart = new MimeBodyPart();
         textPart.setText("Please find the attached revenue report.");
-    
+
         MimeBodyPart attachmentPart = new MimeBodyPart();
         attachmentPart.attachFile(new File(reportFilePath));
-    
+
         Multipart multipart = new MimeMultipart();
         multipart.addBodyPart(textPart);
         multipart.addBodyPart(attachmentPart);
-    
+
         message.setContent(multipart);
         Transport.send(message);
-    
+
         System.out.println("Report sent via email.");
     }
 }
 
-
-public class SuperSaverPOS {
+/**
+ * The SuperSaverPOS class is the main entry point for the SuperSaver Point of Sale system.
+ * It interacts with the user to manage bills and generate revenue reports.
+ */
+public class SuperSaverPOSGroup_BitBuilders {
     public static void main(String[] args) {
         try {
             POS.loadItemsFromCSV("super_saving_items.csv");
