@@ -16,7 +16,7 @@
   <li>Pending Bill Handling</li>
   <li>Total Revenue Reporting</li>
   <li>Email Revenue Report to Sales Team 📧</li>
-  <li>Export Bills as PDF (basic or enhanced using PDFBox)</li>
+
 </ul>
 
 <h2>📧 Email Sending Feature</h2>
