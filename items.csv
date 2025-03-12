@@ -1,0 +1,11 @@
+ItemCode,ItemName,UnitPrice,SizeOrWeight,ManufacturingDate,ExpiryDate,ManufacturerName,DiscountPercentage
+I001,Milk Powder,950,1kg,1/5/2025,1/5/2026,DairyLanka,10
+I002,Rice,180,5kg,12/1/2024,12/1/2025,AgroRice Ltd,5
+I003,Toothpaste,230.5,150g,10/10/2024,10/10/2026,SmileCare,15
+I004,Soap,85,100g,11/15/2024,11/15/2026,FreshGlow,20
+I005,Shampoo,320,200ml,1/10/2025,1/10/2027,SilkySmooth,25
+I006,Biscuits,140,500g,2/1/2025,8/1/2025,SnackyBite,12
+I007,Coconut Oil,500,1L,11/1/2024,11/1/2026,CocoLanka,8
+I008,Sugar,160,2kg,12/20/2024,12/20/2025,SweetCo,0
+I009,Tea Pack,360,400g,2/10/2025,2/10/2026,CeylonTea,18
+I010,Wheat Flour,190,1kg,12/15/2024,12/15/2025,GoldenGrain,10

@@ -1,0 +1,99 @@
+Super-Saving Supermarket
+Bill Receipt
+Cashier: sangeeth
+Customer: dambulla
+Date: 2025-03-12 09:39
+
+Item (Size/Weight), Quantity, Discount, Final Price
+Soap (100g), 2, 20%, $136.0
+
+Total Discount: $34.0
+Total Cost: $136.0Super-Saving Supermarket
+Bill Receipt
+Cashier: baba
+Customer: Amarabandu Roopasinhe
+Date: 2025-03-12 11:03
+
+Item (Size/Weight), Quantity, Discount, Final Price
+Rice (5kg), 4, 5%, $684.0
+Milk Powder (1kg), 44, 10%, $37620.0
+
+Total Discount: $4216.0
+Total Cost: $38304.0
+-----------------------------------------------------
+Super-Saving Supermarket
+Bill Receipt
+Cashier: baba
+Customer: Amarabandu Roopasinhe
+Date: 2025-03-12 11:12
+
+Item (Size/Weight), Quantity, Discount, Final Price
+Rice (5kg), 4, 5%, $684.0
+Milk Powder (1kg), 44, 10%, $37620.0
+
+Total Discount: $4216.0
+Total Cost: $38304.0
+-----------------------------------------------------
+Super-Saving Supermarket
+Bill Receipt
+Cashier: ee
+Customer: e
+Date: 2025-03-12 11:12
+
+Item (Size/Weight), Quantity, Discount, Final Price
+Soap (100g), 33, 20%, $2244.0
+
+Total Discount: $561.0
+Total Cost: $2244.0
+-----------------------------------------------------
+Super-Saving Supermarket
+Bill Receipt
+Cashier: sangeeth
+Customer: Ranil
+Date: 2025-03-12 11:26
+
+Item (Size/Weight), Quantity, Discount, Final Price
+Milk Powder (1kg), 3, 10%, $2565.0
+Soap (100g), 55, 20%, $3740.0
+
+Total Discount: $1220.0
+Total Cost: $6305.0
+-----------------------------------------------------
+Super-Saving Supermarket
+Bill Receipt
+Cashier: lasana
+Customer: kalana
+Date: 2025-03-12 11:31
+
+Item (Size/Weight), Quantity, Discount, Final Price
+Milk Powder (1kg), 1, 10%, $855.0
+
+Total Discount: $95.0
+Total Cost: $855.0
+-----------------------------------------------------
+Super-Saving Supermarket
+Bill Receipt
+Cashier: sangeeth
+Customer: kalana
+Date: 2025-03-12 11:32
+
+Item (Size/Weight), Quantity, Discount, Final Price
+Milk Powder (1kg), 5, 10%, $4275.0
+Rice (5kg), 2, 5%, $342.0
+
+Total Discount: $493.0
+Total Cost: $4617.0
+-----------------------------------------------------
+Super-Saving Supermarket
+Bill Receipt
+Cashier: lasana
+Customer: kalana
+Date: 2025-03-12 11:32
+
+Item (Size/Weight), Quantity, Discount, Final Price
+Milk Powder (1kg), 1, 10%, $855.0
+Rice (5kg), 5, 5%, $855.0
+
+Total Discount: $140.0
+Total Cost: $1710.0
+-----------------------------------------------------

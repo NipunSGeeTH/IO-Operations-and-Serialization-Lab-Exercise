@@ -1,0 +1,24 @@
+functional requirements:
+  1.Add items in the grocery list to the bill
+  2.Get item code,price,weight/size,manufacturing date,
+    expire date and manufature name from the database(csv)
+  3.calculate discounts
+  4.calculate bill and print out the bill containing cashier name,\
+    branch,customer name if registered,item list,total discount,
+    total cost, date, and time.
+  5.save bill as a pdf.
+  6.Handle pending bills
+  7.Generate a revenue report and mail it to sales team
+
+
+
+non-funtional requirements:
+  1.Sysytem should be secure.
+  2.Bills should be readable.
+  3.Store pending bills efficiently.
+  4.cashier user interface should be user friendly
+  5.should be able to handle multiple bills at once
+  6.Sysytem should be scalable to support multiple branches
+  7.System should handle errors without crashing
+  
+
