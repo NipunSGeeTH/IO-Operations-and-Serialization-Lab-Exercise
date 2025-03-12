@@ -170,8 +170,8 @@ class POS {
         Message message = new MimeMessage(session);
         message.setFrom(new InternetAddress(username));
         message.setRecipients(Message.RecipientType.TO,
-                InternetAddress.parse("nipunsgeeth@gmail.com"));
-                // InternetAddress.parse("salesteam@supersaving.lk"));
+              
+                InternetAddress.parse("salesteam@supersaving.lk"));
         message.setSubject("Super-Saving Revenue Report");
     
         MimeBodyPart textPart = new MimeBodyPart();
